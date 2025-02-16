@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block title %}Home - House Price Prediction{% endblock %}
+
+{% block content %}
+<style>
+    .hero {
+        background-image: url("{{ url_for('static', filename='background.jpg') }}");
+        background-position: center;
+        background-repeat: repeat;
+        background-size: cover;
+        height: 90vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-align: center;
+    }
+</style>
+
+
+<!-- Hero Section -->
+<div class="hero">
+    <div>
+        <h1 class="display-4 font-weight-bold">Find Your a Way</h1>
+        <p class="lead" style="color: rgb(8, 35, 67);">Get estimate price, insights, and recommendations for smarter real estate decisions.</p>
+        <a href="/predict" class="btn btn-light btn-lg">Get Started</a>
+    </div>
+</div>
+
+<!-- Services Section -->
+<div class="container mt-5 text-center">
+    <h2 class="text-primary mb-4">Our Services</h2>
+    <div class="row">
+        <!-- Price Predictor -->
+        <div class="col-md-4">
+            <div class="card shadow-lg">
+                <div class="card-body">
+                    <h4 class="text-info">Price Predictor</h4>
+                    <p>Estimate the price of a property based on location, size, and features.</p>
+                    <a href="/predict" class="btn btn-primary">Try Now</a>
+                </div>
+            </div>
+        </div>
+        <!-- Analysis -->
+        <div class="col-md-4">
+            <div class="card shadow-lg">
+                <div class="card-body">
+                    <h4 class="text-info">Market Analysis</h4>
+                    <p>Understand market trends and make data-driven real estate decisions.</p>
+                    <a href="/analysis" class="btn btn-primary">Explore</a>
+                </div>
+            </div>
+        </div>
+        <!-- Recommendation System -->
+        <div class="col-md-4">
+            <div class="card shadow-lg">
+                <div class="card-body">
+                    <h4 class="text-info">Recommendation System</h4>
+                    <p>Get personalized property recommendations based on your preferences.</p>
+                    <a href="/recommend" class="btn btn-primary">Discover</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
