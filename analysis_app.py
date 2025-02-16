@@ -1,12 +1,9 @@
 import plotly.express as px
 import plotly.graph_objects as go
-from shapely.geometry import Point
-import geopandas as gpd
 import pandas as pd
 from flask import request
 import pickle
 import numpy as np
-from scipy import stats
 
 
 df = pickle.load(open("datasets/data.pkl","rb"))
