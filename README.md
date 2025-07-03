@@ -1,10 +1,5 @@
-Here's a professional and detailed `README.md` file for your GitHub project: [Real-Estate-Price-Analysis](https://github.com/Prayesh13/Real-Estate-Price-Analysis). This includes a description, installation steps, usage, and highlights your implementation of the **Recommender System** using **distance** and **description** similarity.
-
----
-
 ### ✅ `README.md`
 
-```markdown
 # 🏘️ Real Estate Price Analysis & Recommendation System
 
 This project is an end-to-end Real Estate Price Prediction and Property Recommendation System built using Flask, XGBoost, scikit-learn, and interactive web templates. It allows users to predict the property price based on multiple features and also explore similar properties based on two distinct recommendation strategies: **Location-based Distance Similarity** and **Description-based Text Similarity**.
@@ -25,8 +20,7 @@ This project is an end-to-end Real Estate Price Prediction and Property Recommen
 
 ## 📂 Project Structure
 
-```
-
+```bash
 Real-Estate-Price-Analysis/
 │
 ├── app.py                         # Main Flask application
@@ -46,10 +40,9 @@ Real-Estate-Price-Analysis/
 ├── static/
 │   └── css/, js/                 # (Optional) Static assets
 └── README.md                     # Project documentation
-
 ```
 
----
+----------------
 
 ## ⚙️ Installation
 
@@ -57,7 +50,7 @@ Real-Estate-Price-Analysis/
 ```bash
 git clone https://github.com/Prayesh13/Real-Estate-Price-Analysis.git
 cd Real-Estate-Price-Analysis
-````
+```
 
 ### 2. Set up a virtual environment
 
@@ -118,7 +111,7 @@ Visit: [http://127.0.0.1:5000](http://127.0.0.1:5000)
 
 ```text
 flask==2.3.3
-xgboost==1.3.3
+xgboost==3.0.2
 scikit-learn==1.5.2
 pandas==2.2.2
 numpy==1.26.4
@@ -133,21 +126,3 @@ matplotlib, seaborn, plotly (optional)
 
 **Prayesh Godhani**
 📫 [GitHub](https://github.com/Prayesh13)
-
----
-
-## 📃 License
-
-This project is licensed under the MIT License. Feel free to use and modify it for personal or educational purposes.
-
-```
-
----
-
-Let me know if you'd like me to:
-- Add GIF demos or screenshots
-- Generate a `requirements.txt` from your environment
-- Help you write deployment steps (like Render/Heroku)
-
-Would you like me to push this to the repo directly or save it as a file?
-```
