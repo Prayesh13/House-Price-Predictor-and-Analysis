@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+
+{% block title %}Recommendation System{% endblock %}
+
+{% block content %}
+<div class="form-group">
+    <br>
+    <form action="/recommend_properties" method="POST">
+        <h3 class="text-color" style="margin-top: 20px;"> Select a Property Name :</h3>
+        <select name="user_input" class="form-control" style="height: 50px; font-size: 16px;">
+            <option value="Select a property" style="margin-bottom: 20px;" selected disabled>Select a property</option>
+            {% for property in plist %}
+                <option value="{{ property }}" {% if property == uinput %} selected {% endif %}>{{ property }}</option>
+            {% endfor %}
+        </select>
+        
+        <br>
+        <h4 class="text-color mt-4">Recommendations By:</h4>
+        <div class="form-group">
+            <div class="form-check form-check-inline">
+                <input 
+                    class="form-check-input" 
+                    type="radio" 
+                    name="recommend_by" 
+                    id="distance" 
+                    value="distance" 
+                    required 
+                    {% if not request.form.recommend_by or request.form.recommend_by == "distance" %}checked{% endif %}
+                >
+                <label class="form-check-label" for="distance">Distance</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input 
+                    class="form-check-input" 
+                    type="radio" 
+                    name="recommend_by" 
+                    id="description" 
+                    value="description"
+                    {% if request.form.recommend_by == "description" %}checked{% endif %}
+                >
+                <label class="form-check-label" for="description">Description</label>
+            </div>
+    </div>
+
+
+        <input type="submit" class="btn btn-lg btn-success" value="Get Recommendation">
+    </form>
+</div>
+
+{% if data %}
+    <div style="margin-top: 30px;">
+        <h4 style="color: #007bff;"><b> Selected Property Name: </b>{{ uinput }}</h4>
+        <h2 style="color: #28a745; margin-top: 30px;"><b> Recommended Properties: </b></h2>
+    </div>
+    <div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th style="color: #50708c; font-size: 22px;"><b>Property Name</b></th>
+                    <th style="color: #1cc5df; font-size: 22px;"><b>Score</b></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for rec in data %}
+                <tr>
+                    <td style="color: #6c757d;"><b>{{ rec['PropertyName'] }}</b></td>
+                    <td style="color: #17a2b8;"><b>{{ rec['SimilarityScores'] }}</b></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endif %}
+
+{% if error_message %}
+    <div class="alert alert-danger mt-3">
+        {{ error_message }}
+    </div>
+{% endif %}
+
+{% endblock content %}
+

@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block title %}Geo Map Analysis{% endblock %}
+
+{% block content %}
+<br>
+<br>
+<div class="container-fluid">
+    <h2 class="text-center"><b>Detailed Area Wise Price per sqft Geomap Analysis</b></h2>
+    <div class="mt-4">{{ graph_html | safe }}</div>
+</div>
+{% endblock %}

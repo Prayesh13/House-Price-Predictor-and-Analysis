@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block title %}Price Distribution Analysis{% endblock %}
+
+{% block content %}
+<br>
+<br>
+<div class="container-fluid">
+    <h2 class="text-center"><b>Detailed Price Distribution Analysis</b></h2>
+    <div class="mt-4">{{ dist_html | safe }}</div>
+</div>
+{% endblock %}

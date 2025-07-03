@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block title %}Home - Real Estate Analysis{% endblock %}
+
+{% block content %}
+<style>
+    .hero {
+        background-image: url("{{ url_for('static', filename='image.png') }}");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 90vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .hero-content {
+        background-color: rgba(0, 0, 0, 0.6); /* semi-transparent black */
+        color: white;
+        padding: 2rem 3rem;
+        border-radius: 12px;
+        max-width: 600px;
+    }
+
+    .hero-content .lead {
+        color: #d1e8ff; /* light blue-gray for contrast */
+    }
+</style>
+
+<!-- Hero Section -->
+<div class="hero">
+    <div class="hero-content">
+        <h1 class="display-4 font-weight-bold">Find Your Way</h1>
+        <p class="lead">Get estimate price, insights, and recommendations for smarter real estate decisions.</p>
+        <a href="/predict" class="btn btn-light btn-lg mt-3">Get Started</a>
+    </div>
+</div>
+
+<!-- Services Section -->
+<div class="container mt-5 text-center">
+    <h2 class="text-primary mb-4">Price Analysis</h2>
+    <div class="row justify-content-center">
+        <!-- Price Predictor -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-lg h-100">
+                <div class="card-body">
+                    <h4 class="text-info">Price Predictor</h4>
+                    <p>Estimate the price of a property based on location, size, and features.</p>
+                    <a href="/predict" class="btn btn-primary">Try Now</a>
+                </div>
+            </div>
+        </div>
+        <!-- Market Analysis -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-lg h-100">
+                <div class="card-body">
+                    <h4 class="text-info">Market Analysis</h4>
+                    <p>Understand market trends and make data-driven real estate decisions.</p>
+                    <a href="/analysis" class="btn btn-primary">Explore</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

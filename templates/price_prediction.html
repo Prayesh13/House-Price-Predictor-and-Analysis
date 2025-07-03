@@ -1,0 +1,140 @@
+{% extends 'layout.html' %}
+
+{% block title %}Price Prediction{% endblock %}
+
+{% block content %}
+<div class="container bg-dark text-light p-4 rounded">
+    <h1 class="mt-5 text-primary"><b>Predict the Price of the Flat</b></h1>
+    <br>
+
+    <!-- Display Predicted Price at the Top -->
+    {% if low is not none and high is not none %}
+    <div class="alert alert-success text-center">
+        <h3 class="text-success">Estimated Price Range:</h3>
+        <h4><p><b>{{ low }} Cr</b> - <b>{{ high }} Cr</b></p></h4>
+    </div>
+    {% endif %}
+
+    <!-- Form for user input -->
+    <form method="POST" action="/predict#result">
+        <div class="form-group row">
+            <label for="location" class="col-md-4 col-form-label text-info"><b>Location:</b></label>
+            <div class="col-md-8">
+                <select id="location" name="location" class="form-control bg-secondary text-light" required>
+                    {% for option in unique_values['location'] %}
+                        <option value="{{ option }}">{{ option }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="bhk" class="col-md-4 col-form-label text-info"><b>BHK:</b></label>
+            <div class="col-md-8">
+                <input type="number" id="bhk" name="bhk" class="form-control bg-secondary text-light" required>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="built_up_area" class="col-md-4 col-form-label text-info"><b>Built-Up Area (sq.ft.):</b></label>
+            <div class="col-md-8">
+                <input type="number" id="built_up_area" name="built_up_area" class="form-control bg-secondary text-light" required>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="transaction" class="col-md-4 col-form-label text-info"><b>Transaction:</b></label>
+            <div class="col-md-8">
+                <select id="transaction" name="transaction" class="form-control bg-secondary text-light" required>
+                    {% for option in unique_values['transaction'] %}
+                        <option value="{{ option }}">{{ option }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="status" class="col-md-4 col-form-label text-info"><b>Status:</b></label>
+            <div class="col-md-8">
+                <select id="status" name="status" class="form-control bg-secondary text-light" required>
+                    {% for option in unique_values['status'] %}
+                        <option value="{{ option }}">{{ option }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="totalfloor" class="col-md-4 col-form-label text-info"><b>Total Floor:</b></label>
+            <div class="col-md-8">
+                <input type="number" id="totalfloor" name="totalfloor" class="form-control bg-secondary text-light" required>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="furnishing" class="col-md-4 col-form-label text-info"><b>Furnishing:</b></label>
+            <div class="col-md-8">
+                <select id="furnishing" name="furnishing" class="form-control bg-secondary text-light" required>
+                    {% for option in unique_values['furnishing'] %}
+                        <option value="{{ option }}">{{ option }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="facing" class="col-md-4 col-form-label text-info"><b>Facing:</b></label>
+            <div class="col-md-8">
+                <select id="facing" name="facing" class="form-control bg-secondary text-light" required>
+                    {% for option in unique_values['facing'] %}
+                        <option value="{{ option }}">{{ option }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="bathroom" class="col-md-4 col-form-label text-info"><b>Bathroom:</b></label>
+            <div class="col-md-8">
+                <input type="number" id="bathroom" name="bathroom" class="form-control bg-secondary text-light" required>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="floor_category" class="col-md-4 col-form-label text-info"><b>Floor Category:</b></label>
+            <div class="col-md-8">
+                <select id="floor_category" name="floor_category" class="form-control bg-secondary text-light" required>
+                    {% for option in unique_values['floor_category'] %}
+                        <option value="{{ option }}">{{ option }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="luxury_category" class="col-md-4 col-form-label text-info"><b>Luxury Category:</b></label>
+            <div class="col-md-8">
+                <select id="luxury_category" name="luxury_category" class="form-control bg-secondary text-light" required>
+                    {% for option in unique_values['luxury_category'] %}
+                        <option value="{{ option }}">{{ option }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary btn-lg"><b>Predict Price</b></button>
+        </div>
+    </form>
+</div>
+
+<!-- JavaScript to Ensure Page Scrolls to Result -->
+{% if low is not none and high is not none %}
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        window.location.hash = "result";
+    });
+</script>
+{% endif %}
+
+{% endblock %}
