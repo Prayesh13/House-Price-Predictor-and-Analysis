@@ -47,7 +47,7 @@ Real-Estate-Price-Analysis/
 │   └── css/, js/                 # (Optional) Static assets
 └── README.md                     # Project documentation
 
-````
+```
 
 ---
 
